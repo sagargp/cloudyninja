@@ -1,0 +1,11 @@
+# dotfiles
+export DOTFILESDIR=$HOME/workspace/dotfiles
+
+# PATH
+export PATH=$PATH:/sbin:/usr/local/sbin:/usr/sbin:$DOTFILESDIR/bin
+
+# python startup rc 
+export PYTHONSTARTUP="${HOME}/.pythonrc"
+
+# for better color support in tmux
+export TERM=xterm-256color
