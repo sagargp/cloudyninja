@@ -1,4 +1,4 @@
-# Source this file
+#!/usr/bin/env bash
 
-export NINJADIR=`pwd`
-source $NINJADIR/rc/bashrc
+export NINJADIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+bash --rcfile $NINJADIR/rc/bashrc
