@@ -86,3 +86,5 @@ source $NINJADIR/rc/git-prompt.sh
 source $NINJADIR/rc/bashfunctions
 source $NINJADIR/rc/envrc
 source $NINJADIR/rc/aliasrc
+
+# vim:syntax=sh

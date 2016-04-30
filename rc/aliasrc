@@ -15,3 +15,29 @@ alias please='sudo $(history -p !!)'
 
 alias stats='ssh -tt parabox "/invia/bin/jump stats"'
 alias ldrms='ssh -tt parabox "/invia/bin/jump ldpa1 3200"'
+
+if [ ! -z ${NINJAUSER} ]; then
+
+    # Parse the first field of the users file to find all user names
+    NINJAUSERS=$(awk -F, '{printf("%s\n", $1)}' ${NINJADIR}/ninjas)
+
+    # Check to see if the requested user is actually in the file
+    if echo ${NINJAUSERS} | grep -q "\b$NINJAUSER\b" 2> /dev/null; then
+
+        # Grab the whole config line for the requested user
+        NINJALINE=$(grep "^$NINJAUSER\b" ${NINJADIR}/ninjas)
+
+        # Parse out the needed fields
+        NINJANAME=$(echo ${NINJALINE} | awk -F, '{printf("%s\n", $2)}')
+        NINJAEMAIL=$(echo ${NINJALINE} | awk -F, '{printf("%s\n", $3)}')
+
+        # Setup git...
+        GITCONFIG="-c user.name=\"${NINJANAME}\" -c user.email=\"${NINJAEMAIL}\""
+        alias git="git ${GITCONFIG}"
+
+    else
+        echo "!!! WARNING: config user not found ($NINJAUSER) !!!"
+    fi
+fi
+
+# vim:syntax=sh
