@@ -1,0 +1,16 @@
+
+# Run udevadm info on a device file
+# e.g. `udevinfo /dev/ttyACM0`
+udevinfo()
+{
+  udevadm info -a -p  $(udevadm info -q path -n ${1})
+}
+
+# Restart the udev subsystem
+udevrestart()
+{
+  sudo udevadm control --reload-rules
+  sudo udevadm trigger --action=change
+}
+
+# vim:syntax=sh

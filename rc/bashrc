@@ -83,5 +83,6 @@ fi
 bind -f $NINJADIR/rc/inputrc
 source $NINJADIR/rc/git-completion.bash
 source $NINJADIR/rc/git-prompt.sh
+source $NINJADIR/rc/bashfunctions
 source $NINJADIR/rc/envrc
 source $NINJADIR/rc/aliasrc
