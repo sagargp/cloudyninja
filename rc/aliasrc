@@ -1,6 +1,6 @@
-alias tmux="tmux -2 -f $NINJADIR/rc/tmux.conf"
-alias vim="vim -p -u $NINJADIR/rc/vimrc"
-alias python="PYTHONSTARTUP=$NINJADIR/rc/pythonrc python"
+alias tmux="tmux -2 -f $SHDWDIR/rc/tmux.conf"
+alias vim="vim -p -u $SHDWDIR/rc/vimrc"
+alias python="PYTHONSTARTUP=$SHDWDIR/rc/pythonrc python"
 
 alias ls='ls -F --color'
 alias axel="axel -a"
@@ -16,27 +16,27 @@ alias please='sudo $(history -p !!)'
 alias stats='ssh -tt parabox "/invia/bin/jump stats"'
 alias ldrms='ssh -tt parabox "/invia/bin/jump ldpa1 3200"'
 
-if [ ! -z ${NINJAUSER} ]; then
+if [ ! -z ${SHDWUSER} ]; then
 
     # Parse the first field of the users file to find all user names
-    NINJAUSERS=$(awk -F, '{printf("%s\n", $1)}' ${NINJADIR}/ninjas)
+    SHDWUSERS=$(awk -F, '{printf("%s\n", $1)}' ${SHDWDIR}/shdws)
 
     # Check to see if the requested user is actually in the file
-    if echo ${NINJAUSERS} | grep -q "\b$NINJAUSER\b" 2> /dev/null; then
+    if echo ${SHDWUSERS} | grep -q "\b$SHDWUSER\b" 2> /dev/null; then
 
         # Grab the whole config line for the requested user
-        NINJALINE=$(grep "^$NINJAUSER\b" ${NINJADIR}/ninjas)
+        SHDWLINE=$(grep "^$SHDWUSER\b" ${SHDWDIR}/shdws)
 
         # Parse out the needed fields
-        NINJANAME=$(echo ${NINJALINE} | awk -F, '{printf("%s\n", $2)}')
-        NINJAEMAIL=$(echo ${NINJALINE} | awk -F, '{printf("%s\n", $3)}')
+        SHDWNAME=$(echo ${SHDWLINE} | awk -F, '{printf("%s\n", $2)}')
+        SHDWEMAIL=$(echo ${SHDWLINE} | awk -F, '{printf("%s\n", $3)}')
 
         # Setup git...
-        GITCONFIG="-c user.name=\"${NINJANAME}\" -c user.email=\"${NINJAEMAIL}\""
+        GITCONFIG="-c user.name=\"${SHDWNAME}\" -c user.email=\"${SHDWEMAIL}\""
         alias git="git ${GITCONFIG}"
 
     else
-        echo "!!! WARNING: config user not found ($NINJAUSER) !!!"
+        echo "!!! WARNING: config user not found ($SHDWUSER) !!!"
     fi
 fi
 

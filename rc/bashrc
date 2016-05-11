@@ -73,18 +73,18 @@ On_IPurple='\[\033[10;95m\]'  # Purple
 On_ICyan='\[\033[0;106m\]'    # Cyan
 On_IWhite='\[\033[0;107m\]'   # White
 
-PS1="${Green}\u${Color_Off}@${BGreen}\h${Color_Off}:${BIBlue}\w${Color_Off}${Yellow}"'$(__git_ps1 "(%s)")'"${Color_Off}$ "
+PS1="-${Green}\u${Color_Off}@${BGreen}\h${Color_Off}:${BIBlue}\w${Color_Off}${Yellow}"'$(__git_ps1 "(%s)")'"${Color_Off}$ "
 
 # awesome bash completion
 if [ -f /etc/bash_completion ]; then
   source /etc/bash_completion
 fi
 
-bind -f $NINJADIR/rc/inputrc
-source $NINJADIR/rc/git-completion.bash
-source $NINJADIR/rc/git-prompt.sh
-source $NINJADIR/rc/bashfunctions
-source $NINJADIR/rc/envrc
-source $NINJADIR/rc/aliasrc
+bind -f $SHDWDIR/rc/inputrc
+source $SHDWDIR/rc/git-completion.bash
+source $SHDWDIR/rc/git-prompt.sh
+source $SHDWDIR/rc/bashfunctions
+source $SHDWDIR/rc/envrc
+source $SHDWDIR/rc/aliasrc
 
 # vim:syntax=sh
