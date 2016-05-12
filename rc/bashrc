@@ -87,4 +87,8 @@ source $SHDWDIR/rc/bashfunctions
 source $SHDWDIR/rc/envrc
 source $SHDWDIR/rc/aliasrc
 
+if [ -f ${HOME}/.pathrc ]; then
+  source ${HOME}/.pathrc
+fi
+
 # vim:syntax=sh
