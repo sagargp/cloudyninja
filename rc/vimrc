@@ -4,45 +4,45 @@
 set nocompatible                                 " I don't need Vim to be Vi compatible
 filetype off " necessary for Vundle
 
-set rtp+=~/.vim/bundle/vundle/
-runtime autoload/vundle.vim
-
-call vundle#rc()
-" required for vundle
-Bundle 'pathogen.vim'
-" Vundle itself
-Bundle 'gmarik/vundle'
-" Explore the filesystem in a tree
-Bundle 'scrooloose/nerdtree'
-" Persist the NERD tree across tabs
-Bundle 'jistr/vim-nerdtree-tabs' 
-" Browse tags in a split
-Bundle 'Tagbar'
-" Style the status line
-Bundle 'bling/vim-airline'
-" Align text on = or : easily
-Bundle 'godlygeek/tabular'
-" Fast filesystem nav for projects
-Bundle 'ctrlp.vim'
-let g:ctrlp_cmd = 'CtrlPMRU'
-" Show marks in the gutter
-Bundle 'ShowMarks7'
-" Jump around easily with <leader><leader>cmd
-Bundle 'EasyMotion'
-" Color theme
-Bundle 'chriskempson/vim-tomorrow-theme'
-Bundle 'w0ng/vim-hybrid'
-Bundle 'chriskempson/base16-vim'
-" Git integration
-Bundle 'airblade/vim-gitgutter'
-" Pep8
-Bundle 'tell-k/vim-autopep8'
-Bundle 'hynek/vim-python-pep8-indent'
-" Ansible
-Bundle 'chase/vim-ansible-yaml'
-Bundle 'pearofducks/ansible-vim'
-" YCM
-Bundle 'Valloric/YouCompleteMe'
+" set rtp+=~/.vim/bundle/vundle/
+" runtime autoload/vundle.vim
+" 
+" call vundle#rc()
+" " required for vundle
+" Bundle 'pathogen.vim'
+" " Vundle itself
+" Bundle 'gmarik/vundle'
+" " Explore the filesystem in a tree
+" Bundle 'scrooloose/nerdtree'
+" " Persist the NERD tree across tabs
+" Bundle 'jistr/vim-nerdtree-tabs' 
+" " Browse tags in a split
+" Bundle 'Tagbar'
+" " Style the status line
+" Bundle 'bling/vim-airline'
+" " Align text on = or : easily
+" Bundle 'godlygeek/tabular'
+" " Fast filesystem nav for projects
+" Bundle 'ctrlp.vim'
+" let g:ctrlp_cmd = 'CtrlPMRU'
+" " Show marks in the gutter
+" Bundle 'ShowMarks7'
+" " Jump around easily with <leader><leader>cmd
+" Bundle 'EasyMotion'
+" " Color theme
+" Bundle 'chriskempson/vim-tomorrow-theme'
+" Bundle 'w0ng/vim-hybrid'
+" Bundle 'chriskempson/base16-vim'
+" " Git integration
+" Bundle 'airblade/vim-gitgutter'
+" " Pep8
+" Bundle 'tell-k/vim-autopep8'
+" Bundle 'hynek/vim-python-pep8-indent'
+" " Ansible
+" Bundle 'chase/vim-ansible-yaml'
+" Bundle 'pearofducks/ansible-vim'
+" " YCM
+" Bundle 'Valloric/YouCompleteMe'
 
 let NERDTreeIgnore=['\.o$', '\~$', '\.pyc$']
 nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
@@ -51,7 +51,7 @@ nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
 filetype plugin indent on
 syntax on                                        " syntax highlighting
 let mapleader=","                                " Maps <leader> to ,
-colorscheme hybrid
+"colorscheme hybrid
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$' " Highlight VCS conflict markers
 set background=dark
 set mouse=a                                      " Mouse lort in terminal Vim
