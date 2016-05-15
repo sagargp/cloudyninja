@@ -1,5 +1,6 @@
 alias tmux="tmux -2 -f $SHDWDIR/rc/tmux.conf"
-alias vim="vim -p -u $SHDWDIR/rc/vimrc"
+SHDWVIM="vim -p -u $SHDWDIR/rc/vimrc"
+alias vim=${SHDWVIM}
 alias python="PYTHONSTARTUP=$SHDWDIR/rc/pythonrc python"
 
 alias ls='ls -F --color'
@@ -32,7 +33,7 @@ if [ ! -z ${SHDWUSER} ]; then
         SHDWEMAIL=$(echo ${SHDWLINE} | awk -F, '{printf("%s\n", $3)}')
 
         # Setup git...
-        GITCONFIG="-c user.name=\"${SHDWNAME}\" -c user.email=\"${SHDWEMAIL}\""
+        GITCONFIG="-c user.name=\"${SHDWNAME}\" -c user.email=\"${SHDWEMAIL}\" -c core.editor=\"${SHDWVIM}\""
         alias git="git ${GITCONFIG}"
 
     else
