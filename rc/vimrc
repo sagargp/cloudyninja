@@ -4,6 +4,32 @@
 set nocompatible                                 " I don't need Vim to be Vi compatible
 filetype off " necessary for Vundle
 
+set runtimepath^=$SHDWDIR/rc/vim/bundle/ctrlp.vim
+let g:ctrlp_cmd = 'CtrlPMRU'
+
+set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-python-pep8-indent
+
+set runtimepath^=$SHDWDIR/rc/vim/bundle/nerdtree
+set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-nerdtree-tabs
+let NERDTreeIgnore=['\.o$', '\~$', '\.pyc$']
+nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
+nnoremap <leader>n :NERDTreeTabsToggle<CR>
+
+set runtimepath^=$SHDWDIR/rc/vim/bundle/jedi-vim
+let g:jedi#use_tabs_not_buffers = 1
+
+set runtimepath^=$SHDWDIR/rc/vim/bundle/syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['pylint'] " Remember to `sudo pip install pylint`
+let g:syntastic_quiet_messages = { 'regex': ['missing-docstring', 'Invalid constant name'] }
+
+
 " set rtp+=~/.vim/bundle/vundle/
 " runtime autoload/vundle.vim
 " 
@@ -44,12 +70,10 @@ filetype off " necessary for Vundle
 " " YCM
 " Bundle 'Valloric/YouCompleteMe'
 
-let NERDTreeIgnore=['\.o$', '\~$', '\.pyc$']
-nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
 
 " Basic Vim settings
-filetype plugin indent on
 syntax on                                        " syntax highlighting
+filetype plugin indent on
 let mapleader=","                                " Maps <leader> to ,
 "colorscheme hybrid
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$' " Highlight VCS conflict markers
@@ -147,7 +171,6 @@ let g:showmarks_include="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"  
 let g:airline#extensions#tabline#enabled=1                                      " Enable airline by default on new sessions
 set laststatus=2                                                                " see above
 
-nnoremap <leader>n :NERDTreeTabsToggle<CR>
 nnoremap <leader>t :TagbarToggle<CR>
 imap <leader>= :Tab /=<CR>
 nmap <leader>= :Tab /=<CR>
@@ -190,4 +213,8 @@ augroup filetype_txt
   autocmd BufNewFile,BufRead *.txt setlocal foldmethod=marker
 augroup END
 
-au! FileType python setl nosmartindent
+" augroup filetype_python
+"     au! FileType python setl nosmartindent
+"     autocmd Filetype python setlocal sw=4
+"     autocmd Filetype python setlocal ts=4
+" augroup END

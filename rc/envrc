@@ -1,2 +1,3 @@
 # for better color support in tmux
 export TERM=xterm-256color
+export MYVIMRC=${SHDWDIR}/rc/vimrc
