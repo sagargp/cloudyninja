@@ -2,8 +2,15 @@
 " Install Vundle with: git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
 set nocompatible                                 " I don't need Vim to be Vi compatible
+syntax on                                        " syntax highlighting
+filetype plugin indent on
+let mapleader=","                                " Maps <leader> to ,
 filetype off " necessary for Vundle
 
+set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-hybrid
+set runtimepath^=$SHDWDIR/rc/vim/bundle/Tagbar
+set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-airline
+set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-gitgutter
 set runtimepath^=$SHDWDIR/rc/vim/bundle/ctrlp.vim
 let g:ctrlp_cmd = 'CtrlPMRU'
 
@@ -72,10 +79,7 @@ let g:syntastic_quiet_messages = { 'regex': ['missing-docstring', 'Invalid const
 
 
 " Basic Vim settings
-syntax on                                        " syntax highlighting
-filetype plugin indent on
-let mapleader=","                                " Maps <leader> to ,
-"colorscheme hybrid
+colorscheme hybrid
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$' " Highlight VCS conflict markers
 set background=dark
 set mouse=a                                      " Mouse lort in terminal Vim
