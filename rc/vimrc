@@ -13,10 +13,10 @@ endif
 
 " ----- Airline ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-airline
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
+set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-airline-themes
+let g:airline_left_sep = '░'
+let g:airline_right_sep = '░'
+let g:airline_theme='lucius'
 
 " ----- Git Gutter ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-gitgutter
@@ -52,11 +52,10 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['flake8'] " Remember to `sudo pip install flake8`
 let g:syntastic_quiet_messages = { 'regex': ['E402'] }
 let g:syntastic_python_flake8_args = "--max-line-length=160"
-let g:syntastic_warning_symbol="⚠" 
+let g:syntastic_warning_symbol="⚠"
 let g:syntastic_error_symbol="✗"
 
 " Basic Vim settings
-colorscheme hybrid
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$' " Highlight VCS conflict markers
 set background=dark
 set mouse=a                                      " Mouse lort in terminal Vim
@@ -72,9 +71,9 @@ set showmatch                                    " Briefly show the matching bra
 set guioptions-=T                                " No toolbar
 set guioptions-=M                                " No menu bar
 set guioptions-=l                                " No left scrollbar
-set guioptions-=L                                " 
+set guioptions-=L
 set guioptions-=R                                " No right scrollbar
-set guioptions-=r                                " 
+set guioptions-=r
 set showmode                                     " Tell me when I'm in insert mode
 set ttyfast                                      " We're on a fast connection, it's ok to send lots of bytes
 set autoread                                     " Detect when open files have changed and reopen them
@@ -194,5 +193,8 @@ augroup filetype_txt
   autocmd BufNewFile,BufRead *.txt setlocal spell
   autocmd BufNewFile,BufRead *.txt setlocal foldmethod=marker
 augroup END
+
+" Not sure why this has to go here
+colorscheme hybrid
 
 " vim: set ft=vim:
