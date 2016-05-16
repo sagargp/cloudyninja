@@ -1,35 +1,46 @@
-" Set up vundle and plugins
-" Install Vundle with: git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-
 set nocompatible                                 " I don't need Vim to be Vi compatible
 syntax on                                        " syntax highlighting
 filetype plugin indent on
 let mapleader=","                                " Maps <leader> to ,
-filetype off " necessary for Vundle
 
+" ----- Hybrid Colorscheme ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-hybrid
-set runtimepath^=$SHDWDIR/rc/vim/bundle/Tagbar
+
+" ----- Tagbar ---------------------------
+if executable("ctags")
+    set runtimepath^=$SHDWDIR/rc/vim/bundle/Tagbar
+endif
+
+" ----- Airline ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-airline
+
+" ----- Git Gutter ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-gitgutter
+
+" ----- Ctrl-P ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/ctrlp.vim
 let g:ctrlp_cmd = 'CtrlPMRU'
 
+" ----- PEP8 Indent ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-python-pep8-indent
 
+" ----- NerdTree ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/nerdtree
 set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-nerdtree-tabs
 let NERDTreeIgnore=['\.o$', '\~$', '\.pyc$']
 nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
 nnoremap <leader>n :NERDTreeTabsToggle<CR>
 
-" set runtimepath^=$SHDWDIR/rc/vim/bundle/jedi-vim
-" "let g:jedi#use_tabs_not_buffers = 1
-" let g:jedi#show_call_signatures = "1"
+" ----- Jedi ---------------------------
+"set runtimepath^=$SHDWDIR/rc/vim/bundle/jedi-vim
+"let g:jedi#use_tabs_not_buffers = 1
+"let g:jedi#show_call_signatures = "1"
 
+" ----- Syntastic ----------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
@@ -39,48 +50,6 @@ let g:syntastic_quiet_messages = { 'regex': ['E402'] }
 let g:syntastic_python_flake8_args = "--max-line-length=160"
 let g:syntastic_warning_symbol="⚠" 
 let g:syntastic_error_symbol="✗"
-
-
-" set rtp+=~/.vim/bundle/vundle/
-" runtime autoload/vundle.vim
-" 
-" call vundle#rc()
-" " required for vundle
-" Bundle 'pathogen.vim'
-" " Vundle itself
-" Bundle 'gmarik/vundle'
-" " Explore the filesystem in a tree
-" Bundle 'scrooloose/nerdtree'
-" " Persist the NERD tree across tabs
-" Bundle 'jistr/vim-nerdtree-tabs' 
-" " Browse tags in a split
-" Bundle 'Tagbar'
-" " Style the status line
-" Bundle 'bling/vim-airline'
-" " Align text on = or : easily
-" Bundle 'godlygeek/tabular'
-" " Fast filesystem nav for projects
-" Bundle 'ctrlp.vim'
-" let g:ctrlp_cmd = 'CtrlPMRU'
-" " Show marks in the gutter
-" Bundle 'ShowMarks7'
-" " Jump around easily with <leader><leader>cmd
-" Bundle 'EasyMotion'
-" " Color theme
-" Bundle 'chriskempson/vim-tomorrow-theme'
-" Bundle 'w0ng/vim-hybrid'
-" Bundle 'chriskempson/base16-vim'
-" " Git integration
-" Bundle 'airblade/vim-gitgutter'
-" " Pep8
-" Bundle 'tell-k/vim-autopep8'
-" Bundle 'hynek/vim-python-pep8-indent'
-" " Ansible
-" Bundle 'chase/vim-ansible-yaml'
-" Bundle 'pearofducks/ansible-vim'
-" " YCM
-" Bundle 'Valloric/YouCompleteMe'
-
 
 " Basic Vim settings
 colorscheme hybrid
@@ -177,6 +146,7 @@ map <C-\> :tab split<cr>:exec("tag ".expand("<cword>"))<CR>
 set completeopt-=preview                                                        " ???
 let g:showmarks_include="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"  " Only show marks set to these registers
 let g:airline#extensions#tabline#enabled=1                                      " Enable airline by default on new sessions
+let g:airline#extensions#syntastic#enabled=1                                    " Enable airline by default on new sessions
 set laststatus=2                                                                " see above
 
 nnoremap <leader>t :TagbarToggle<CR>
@@ -221,8 +191,4 @@ augroup filetype_txt
   autocmd BufNewFile,BufRead *.txt setlocal foldmethod=marker
 augroup END
 
-" augroup filetype_python
-"     au! FileType python setl nosmartindent
-"     autocmd Filetype python setlocal sw=4
-"     autocmd Filetype python setlocal ts=4
-" augroup END
+" vim: set ft=vim:
