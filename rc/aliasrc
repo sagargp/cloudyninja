@@ -1,4 +1,4 @@
-alias tmux="tmux -2 -f $SHDWDIR/rc/tmux.conf"
+alias tmux="tmux -L shdw -2 -f $SHDWDIR/rc/tmux.conf"
 SHDWVIM="vim -p -u $SHDWDIR/rc/vimrc"
 alias vim=${SHDWVIM}
 alias python="PYTHONSTARTUP=$SHDWDIR/rc/pythonrc python"
