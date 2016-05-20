@@ -180,13 +180,16 @@ __git_ps1_show_upstream ()
 		"") # no upstream
 			p="" ;;
 		"0	0") # equal to upstream
-			p=" u=" ;;
+			#p=" u=" ;;
+            p="";;
 		"0	"*) # ahead of upstream
-			p=" u+${count#0	}" ;;
+			#p=" u+${count#0	}" ;;
+			p=" 🡩 ${count#0	}" ;;
 		*"	0") # behind upstream
-			p=" u-${count%	0}" ;;
+			#p=" u-${count%	0}" ;;
+			p=" 🡫 ${count%	0}" ;;
 		*)	    # diverged from upstream
-			p=" u+${count#*	}-${count%	*}" ;;
+			p="↯ +${count#*	}-${count%	*}" ;;
 		esac
 	fi
 

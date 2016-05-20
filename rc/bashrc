@@ -73,6 +73,7 @@ On_IPurple='\[\033[10;95m\]'  # Purple
 On_ICyan='\[\033[0;106m\]'    # Cyan
 On_IWhite='\[\033[0;107m\]'   # White
 
+export GIT_PS1_SHOWUPSTREAM=verbose
 PS1="${Green}\u[${SHDWUSER}]${Color_Off}@${BGreen}\h${Color_Off}:${BIBlue}\w${Color_Off}${Yellow}"'$(__git_ps1 "(%s)")'"${Color_Off}$ "
 
 # awesome bash completion
