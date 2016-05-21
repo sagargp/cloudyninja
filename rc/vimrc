@@ -196,6 +196,10 @@ augroup filetype_txt
   autocmd BufNewFile,BufRead *.txt setlocal foldmethod=marker
 augroup END
 
+augroup filetype_cma
+  autocmd BufNewFile,BufRead CMakeLists.txt setlocal ft=cmake
+augroup END
+
 " Not sure why this has to go here
 colorscheme hybrid
 
