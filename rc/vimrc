@@ -20,6 +20,9 @@ let g:airline_theme='lucius'
 
 " ----- Git Gutter ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-gitgutter
+nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
+nnoremap <Left> :GitGutterPrevHunk<CR>
+nnoremap <Right> :GitGutterNextHunk<CR>
 
 " ----- Ctrl-P ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/ctrlp.vim
@@ -32,7 +35,6 @@ set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-python-pep8-indent
 set runtimepath^=$SHDWDIR/rc/vim/bundle/nerdtree
 set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-nerdtree-tabs
 let NERDTreeIgnore=['\.o$', '\~$', '\.pyc$']
-nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
 nnoremap <leader>n :NERDTreeTabsToggle<CR>
 
 " ----- Jedi ---------------------------
@@ -124,6 +126,8 @@ set wildignore+=*.pyc
 " Buffer stuff. Q=go to last buffer; <leader>x=close buffer
 nmap Q :b#<CR>
 nmap <leader>x :bd<CR>
+nmap ( :bprev<CR>
+nmap ) :bnext<CR>
 
 " jump wrapped lines
 nmap j gj
