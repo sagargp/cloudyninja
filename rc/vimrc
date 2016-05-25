@@ -76,7 +76,7 @@ set encoding=utf-8                               " Text encoding should support 
 set autochdir                                    " Set cwd to the current file's dir
 set ruler                                        " Show line, col, line% in bottom right corner
 set autoindent                                   " Auto indent new lines
-set smartindent                                  " Indent smartly after {'s, etc
+set nosmartindent                                " Indent smartly after {'s, etc
 set expandtab                                    " Spaces instead of tabs
 set tabstop=4                                    " Cols per tab
 set shiftwidth=4                                 " Cols per shift (>> and <<)
