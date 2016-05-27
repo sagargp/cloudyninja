@@ -197,6 +197,11 @@ augroup filetype_txt
   autocmd BufNewFile,BufRead *.txt setlocal foldmethod=marker
 augroup END
 
+" python files
+augroup filetype_python
+  autocmd FileType python setl nosmartindent
+augroup END
+
 " Not sure why this has to go here
 colorscheme hybrid
 
