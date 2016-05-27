@@ -36,9 +36,9 @@ nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
 nnoremap <leader>n :NERDTreeTabsToggle<CR>
 
 " ----- Jedi ---------------------------
-"set runtimepath^=$SHDWDIR/rc/vim/bundle/jedi-vim
-"let g:jedi#use_tabs_not_buffers = 1
-"let g:jedi#show_call_signatures = "1"
+set runtimepath^=$SHDWDIR/rc/vim/bundle/jedi-vim
+let g:jedi#use_tabs_not_buffers = 1
+let g:jedi#show_call_signatures = "0"
 
 " ----- Syntastic ----------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/syntastic
