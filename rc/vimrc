@@ -20,6 +20,9 @@ let g:airline_theme='lucius'
 
 " ----- Git Gutter ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-gitgutter
+nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
+nnoremap <Left> :GitGutterPrevHunk<CR>
+nnoremap <Right> :GitGutterNextHunk<CR>
 
 " ----- Ctrl-P ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/ctrlp.vim
@@ -32,7 +35,6 @@ set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-python-pep8-indent
 set runtimepath^=$SHDWDIR/rc/vim/bundle/nerdtree
 set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-nerdtree-tabs
 let NERDTreeIgnore=['\.o$', '\~$', '\.pyc$']
-nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
 nnoremap <leader>n :NERDTreeTabsToggle<CR>
 
 " ----- Jedi ---------------------------
@@ -52,11 +54,19 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['flake8'] " Remember to `sudo pip install flake8`
 let g:syntastic_quiet_messages = { 'regex': ['E402'] }
 let g:syntastic_python_flake8_args = "--max-line-length=160"
-let g:syntastic_style_error_symbol="☹"
-let g:syntastic_style_warning_symbol="☹"
-let g:syntastic_error_symbol="✖"
+let g:syntastic_warning_symbol="⚠"
+let g:syntastic_error_symbol="✗"
 let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = '-std=c++11'
+let g:syntastic_cpp_compiler_options = ' -std=c++11'
+let g:syntastic_javascript_checkers = ['eslint']
+
+" ----- Javascript and React ----------------------
+set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-javascript
+set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-jsx
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+
+" ----- Show marks in the gutter ------------------
+set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-signature
 
 " Basic Vim settings
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$' " Highlight VCS conflict markers
@@ -66,7 +76,7 @@ set encoding=utf-8                               " Text encoding should support 
 set autochdir                                    " Set cwd to the current file's dir
 set ruler                                        " Show line, col, line% in bottom right corner
 set autoindent                                   " Auto indent new lines
-set smartindent                                  " Indent smartly after {'s, etc
+set nosmartindent                                " Indent smartly after {'s, etc
 set expandtab                                    " Spaces instead of tabs
 set tabstop=4                                    " Cols per tab
 set shiftwidth=4                                 " Cols per shift (>> and <<)
@@ -119,6 +129,8 @@ set wildignore+=*.pyc
 " Buffer stuff. Q=go to last buffer; <leader>x=close buffer
 nmap Q :b#<CR>
 nmap <leader>x :bd<CR>
+nmap ( :bprev<CR>
+nmap ) :bnext<CR>
 
 " jump wrapped lines
 nmap j gj
@@ -200,6 +212,10 @@ augroup END
 " python files
 augroup filetype_python
   autocmd FileType python setl nosmartindent
+augroup END
+
+augroup filetype_cma
+  autocmd BufNewFile,BufRead CMakeLists.txt setlocal ft=cmake
 augroup END
 
 " Not sure why this has to go here
