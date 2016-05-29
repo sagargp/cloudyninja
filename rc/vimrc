@@ -216,6 +216,8 @@ augroup END
 
 augroup filetype_cma
   autocmd BufNewFile,BufRead CMakeLists.txt setlocal ft=cmake
+  autocmd BufNewFile,BufRead CMakeLists.txt setlocal nospell
+  set nospell
 augroup END
 
 " Not sure why this has to go here
