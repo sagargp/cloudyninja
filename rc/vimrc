@@ -122,6 +122,13 @@ set wildignore+=*.o
 set wildignore+=*.DS_Store
 set wildignore+=*.pyc
 
+" Load up doxygen syntax highlighting
+let g:load_doxygen_syntax=1
+let g:doxygen_enhanced_color=1
+" hi doxygenBrief cterm=bold,italic ctermfg=255 ctermbg=None
+" hi doxygenBody cterm=None ctermfg=253 ctermbg=None
+" hi doxygenParamName cterm=italic ctermfg=230 gui=bold,italic guifg=230
+
 " ------------
 " Mappings
 " ------------
@@ -218,6 +225,10 @@ augroup filetype_cma
   autocmd BufNewFile,BufRead CMakeLists.txt setlocal ft=cmake
   autocmd BufNewFile,BufRead CMakeLists.txt setlocal nospell
   set nospell
+augroup END
+
+augroup filetype_slice
+  autocmd BufNewFile,BufRead *.ice setlocal ft=slice.doxygen
 augroup END
 
 " Not sure why this has to go here
