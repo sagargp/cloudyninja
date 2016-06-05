@@ -176,6 +176,9 @@ vmap <leader>: :Tab /:<CR>
 " Filetype settings
 " -----------------
 
+" Check for changes on disk when the cursor is moved, and then remains still
+au CursorHold * checktime
+
 " my notes files
 au BufRead,BufNewFile *.note set filetype=notes
 
