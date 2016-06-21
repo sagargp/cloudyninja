@@ -33,7 +33,9 @@ if [ ! -z ${SHDWUSER} ]; then
         SHDWEMAIL=$(echo ${SHDWLINE} | awk -F, '{printf("%s\n", $3)}')
 
         # Setup git...
-        GITCONFIG="-c user.name=\"${SHDWNAME}\" -c user.email=\"${SHDWEMAIL}\" -c core.editor=\"${SHDWVIM}\" -c push.default=simple"
+        # TODO: Make this into a nice associative array
+        DIFFTOOL="${SHDWDIR}/bin/diff-highlight | less"
+        GITCONFIG="-c user.name=\"${SHDWNAME}\" -c pager.log=\"${DIFFTOOL}\" -c pager.show=\"${DIFFTOOL}\" -c pager.diff=\"${DIFFTOOL}\" -c user.email=\"${SHDWEMAIL}\" -c core.editor=\"${SHDWVIM}\" -c push.default=simple"
         alias git="git ${GITCONFIG}"
 
     else
