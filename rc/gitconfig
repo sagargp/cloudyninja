@@ -21,6 +21,14 @@
   changed = green
   untracked = cyan
 
+[color "diff-highlight"]
+  oldNormal = "black #f8cbcb"
+  oldHighlight = "black #ffaaaa"
+  newNormal = "black #cbeecb"
+  newHighlight = "black #aaffaa"
+  oldHighlight = ul
+  oldReset = noul
+
 [push]
   default = simple
 

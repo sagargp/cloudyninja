@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 alias tmux="tmux -L shdw -2 -f $SHDWDIR/rc/tmux.conf"
 SHDWVIM="vim -p -u $SHDWDIR/rc/vimrc"
 alias vim=${SHDWVIM}
@@ -32,10 +34,17 @@ if [ ! -z ${SHDWUSER} ]; then
         SHDWNAME=$(echo ${SHDWLINE} | awk -F, '{printf("%s\n", $2)}')
         SHDWEMAIL=$(echo ${SHDWLINE} | awk -F, '{printf("%s\n", $3)}')
 
-        # Setup git...
-        # TODO: Make this into a nice associative array
+        GITCONFIG=""
+        GITCONFIG="${GITCONFIG} -c user.name=\"${SHDWNAME}\""
+        GITCONFIG="${GITCONFIG} -c user.email=\"${SHDWEMAIL}\""
+        GITCONFIG="${GITCONFIG} -c core.editor=\"${SHDWVIM}\""
+        GITCONFIG="${GITCONFIG} -c push.default=simple"
+
         DIFFTOOL="${SHDWDIR}/bin/diff-highlight | less"
-        GITCONFIG="-c user.name=\"${SHDWNAME}\" -c pager.log=\"${DIFFTOOL}\" -c pager.show=\"${DIFFTOOL}\" -c pager.diff=\"${DIFFTOOL}\" -c user.email=\"${SHDWEMAIL}\" -c core.editor=\"${SHDWVIM}\" -c push.default=simple"
+        GITCONFIG="${GITCONFIG} -c pager.log=\"${DIFFTOOL}\""
+        GITCONFIG="${GITCONFIG} -c pager.show=\"${DIFFTOOL}\""
+        GITCONFIG="${GITCONFIG} -c pager.diff=\"${DIFFTOOL}\""
+
         alias git="git ${GITCONFIG}"
 
     else
