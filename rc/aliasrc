@@ -5,7 +5,10 @@ SHDWVIM="vim -p -u $SHDWDIR/rc/vimrc"
 alias vim=${SHDWVIM}
 alias python="PYTHONSTARTUP=$SHDWDIR/rc/pythonrc python"
 
-alias ls='ls -F --color'
+# Compatibility with OSX which doesn't support --color
+export CLICOLOR=1
+ls --color=auto &> /dev/null && alias ls='ls -F --color' || alias ls='ls -F'
+
 alias axel="axel -a"
 alias diff="diff -y --suppress-common-lines"
 alias find="LC_ALL=\"C\" find"
