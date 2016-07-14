@@ -106,3 +106,5 @@ if [ -f ${HOME}/.pathrc ]; then
 fi
 
 # vim:syntax=sh
+
+eval $(thefuck --alias)
