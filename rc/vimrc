@@ -126,13 +126,6 @@ set wildignore+=*.o
 set wildignore+=*.DS_Store
 set wildignore+=*.pyc
 
-" Load up doxygen syntax highlighting
-let g:load_doxygen_syntax=1
-let g:doxygen_enhanced_color=1
-" hi doxygenBrief cterm=bold,italic ctermfg=255 ctermbg=None
-" hi doxygenBody cterm=None ctermfg=253 ctermbg=None
-" hi doxygenParamName cterm=italic ctermfg=230 gui=bold,italic guifg=230
-
 " ------------
 " Mappings
 " ------------
@@ -240,5 +233,20 @@ augroup END
 
 " Not sure why this has to go here
 colorscheme hybrid
+
+" Specify syntax highlighting for doxygen comments
+let g:load_doxygen_syntax=1
+let g:doxygen_enhanced_color=1
+hi doxygenbrief ctermfg=61 ctermbg=NONE cterm=NONE
+hi doxygenbody cterm=None ctermfg=60 ctermbg=None
+hi doxygencomment ctermfg=60 ctermbg=NONE cterm=NONE
+
+hi doxygenspecial ctermfg=63 ctermbg=NONE cterm=NONE
+hi doxygenparam ctermfg=63 ctermbg=NONE cterm=NONE
+hi doxygensmallspecial ctermfg=63 ctermbg=NONE cterm=NONE
+hi doxygenprev ctermfg=63 ctermbg=NONE cterm=NONE
+hi doxygenspecialmultilinedesc ctermfg=69 ctermbg=NONE cterm=NONE
+hi doxygenspecialonelinedesc ctermfg=69 ctermbg=NONE cterm=NONE
+hi doxygenparamname cterm=italic ctermfg=75
 
 " vim: set ft=vim:
