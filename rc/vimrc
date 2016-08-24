@@ -26,6 +26,8 @@ set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-gitgutter
 nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
 nnoremap <Left> :GitGutterPrevHunk<CR>
 nnoremap <Right> :GitGutterNextHunk<CR>
+nnoremap + :GitGutterStageHunk<CR>
+nnoremap - :GitGutterRevertHunk<CR>
 
 " ----- Ctrl-P ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/ctrlp.vim
@@ -41,9 +43,9 @@ let NERDTreeIgnore=['\.o$', '\~$', '\.pyc$']
 nnoremap <leader>n :NERDTreeTabsToggle<CR>
 
 " ----- Jedi ---------------------------
-"set runtimepath^=$SHDWDIR/rc/vim/bundle/jedi-vim
-"let g:jedi#use_tabs_not_buffers = 1
-"let g:jedi#show_call_signatures = "1"
+" set runtimepath^=$SHDWDIR/rc/vim/bundle/jedi-vim
+" let g:jedi#use_tabs_not_buffers = 1
+" let g:jedi#show_call_signatures = "0"
 
 " ----- Syntastic ----------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/syntastic
@@ -59,9 +61,13 @@ let g:syntastic_quiet_messages = { 'regex': ['E402'] }
 let g:syntastic_python_flake8_args = "--max-line-length=160"
 let g:syntastic_warning_symbol="⚠"
 let g:syntastic_error_symbol="✗"
-let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler = '' "'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
 let g:syntastic_javascript_checkers = ['eslint']
+
+" ----- NeoComplete ---------------------------
+set runtimepath^=$SHDWDIR/rc/vim/bundle/neocomplete.vim
+let g:neocomplete#enable_at_startup = 1
 
 " ----- Javascript and React ----------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-javascript
@@ -79,7 +85,7 @@ set encoding=utf-8                               " Text encoding should support 
 set autochdir                                    " Set cwd to the current file's dir
 set ruler                                        " Show line, col, line% in bottom right corner
 set autoindent                                   " Auto indent new lines
-set smartindent                                  " Indent smartly after {'s, etc
+set nosmartindent                                " Indent smartly after {'s, etc
 set expandtab                                    " Spaces instead of tabs
 set tabstop=4                                    " Cols per tab
 set shiftwidth=4                                 " Cols per shift (>> and <<)
@@ -182,6 +188,9 @@ vmap <leader>: :Tab /:<CR>
 " Filetype settings
 " -----------------
 
+" Check for changes on disk when the cursor is moved, and then remains still
+au CursorHold * checktime
+
 " my notes files
 au BufRead,BufNewFile *.note set filetype=notes
 
@@ -212,11 +221,37 @@ augroup filetype_txt
   autocmd BufNewFile,BufRead *.txt setlocal foldmethod=marker
 augroup END
 
+" python files
+augroup filetype_python
+  autocmd FileType python setl nosmartindent
+augroup END
+
 augroup filetype_cma
   autocmd BufNewFile,BufRead CMakeLists.txt setlocal ft=cmake
+  autocmd BufNewFile,BufRead CMakeLists.txt setlocal nospell
+  set nospell
+augroup END
+
+augroup filetype_slice
+  autocmd BufNewFile,BufRead *.ice setlocal ft=slice.doxygen
 augroup END
 
 " Not sure why this has to go here
 colorscheme hybrid
+
+" Specify syntax highlighting for doxygen comments
+let g:load_doxygen_syntax=1
+let g:doxygen_enhanced_color=1
+hi doxygenbrief ctermfg=61 ctermbg=NONE cterm=NONE
+hi doxygenbody cterm=None ctermfg=60 ctermbg=None
+hi doxygencomment ctermfg=60 ctermbg=NONE cterm=NONE
+
+hi doxygenspecial ctermfg=63 ctermbg=NONE cterm=NONE
+hi doxygenparam ctermfg=63 ctermbg=NONE cterm=NONE
+hi doxygensmallspecial ctermfg=63 ctermbg=NONE cterm=NONE
+hi doxygenprev ctermfg=63 ctermbg=NONE cterm=NONE
+hi doxygenspecialmultilinedesc ctermfg=69 ctermbg=NONE cterm=NONE
+hi doxygenspecialonelinedesc ctermfg=69 ctermbg=NONE cterm=NONE
+hi doxygenparamname cterm=italic ctermfg=75
 
 " vim: set ft=vim:
