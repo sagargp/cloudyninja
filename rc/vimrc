@@ -39,6 +39,9 @@ set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-nerdtree-tabs
 let NERDTreeIgnore=['\.o$', '\~$', '\.pyc$']
 nnoremap <leader>n :NERDTreeTabsToggle<CR>
 
+" ----- AutoPEP8 ---------------------------
+set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-autopep8
+
 " ----- Jedi ---------------------------
 " set runtimepath^=$SHDWDIR/rc/vim/bundle/jedi-vim
 " let g:jedi#use_tabs_not_buffers = 1
