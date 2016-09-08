@@ -46,9 +46,9 @@ nnoremap <leader>n :NERDTreeTabsToggle<CR>
 set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-autopep8
 
 " ----- Jedi ---------------------------
-" set runtimepath^=$SHDWDIR/rc/vim/bundle/jedi-vim
-" let g:jedi#use_tabs_not_buffers = 1
-" let g:jedi#show_call_signatures = "0"
+set runtimepath^=$SHDWDIR/rc/vim/bundle/jedi-vim
+let g:jedi#use_tabs_not_buffers = 1
+let g:jedi#show_call_signatures = "0"
 
 " ----- Syntastic ----------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/syntastic
