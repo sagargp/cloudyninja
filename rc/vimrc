@@ -36,12 +36,6 @@ let g:ctrlp_cmd = 'CtrlPMRU'
 " ----- PEP8 Indent ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-python-pep8-indent
 
-" ----- NerdTree ---------------------------
-set runtimepath^=$SHDWDIR/rc/vim/bundle/nerdtree
-set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-nerdtree-tabs
-let NERDTreeIgnore=['\.o$', '\~$', '\.pyc$']
-nnoremap <leader>n :NERDTreeTabsToggle<CR>
-
 " ----- AutoPEP8 ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-autopep8
 
@@ -49,6 +43,17 @@ set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-autopep8
 set runtimepath^=$SHDWDIR/rc/vim/bundle/jedi-vim
 let g:jedi#use_tabs_not_buffers = 1
 let g:jedi#show_call_signatures = "0"
+let g:jedi#usages_command = "<leader>u"
+
+" ----- Braceless (text objects for python) ----
+set runtimepath^=$SHDWDIR/rc/vim/bundle/braceless.vim
+autocmd FileType python BracelessEnable +indent
+
+" ----- NerdTree ---------------------------
+set runtimepath^=$SHDWDIR/rc/vim/bundle/nerdtree
+set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-nerdtree-tabs
+let NERDTreeIgnore=['\.o$', '\~$', '\.pyc$']
+nnoremap <leader>n :NERDTreeTabsToggle<CR>
 
 " ----- Syntastic ----------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/syntastic
@@ -68,10 +73,13 @@ let g:syntastic_cpp_compiler = '' "'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
 let g:syntastic_javascript_checkers = ['eslint']
 
+<<<<<<< HEAD
 " " ----- NeoComplete ---------------------------
 " set runtimepath^=$SHDWDIR/rc/vim/bundle/neocomplete.vim
 " let g:neocomplete#enable_at_startup = 1
 
+=======
+>>>>>>> d2b10ca94f429ab4bff0dd509296d21e29881a5d
 " ----- Javascript and React ----------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-javascript
 " set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-jsx
