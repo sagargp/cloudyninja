@@ -68,9 +68,9 @@ let g:syntastic_cpp_compiler = '' "'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
 let g:syntastic_javascript_checkers = ['eslint']
 
-" ----- NeoComplete ---------------------------
-set runtimepath^=$SHDWDIR/rc/vim/bundle/neocomplete.vim
-let g:neocomplete#enable_at_startup = 1
+" " ----- NeoComplete ---------------------------
+" set runtimepath^=$SHDWDIR/rc/vim/bundle/neocomplete.vim
+" let g:neocomplete#enable_at_startup = 1
 
 " ----- Javascript and React ----------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-javascript
