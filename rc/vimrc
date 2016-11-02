@@ -3,12 +3,15 @@ syntax on                                        " syntax highlighting
 filetype plugin indent on
 let mapleader=","                                " Maps <leader> to ,
 
+
 " ----- Hybrid Colorscheme ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-hybrid
+
+
+" ----- Indent Line ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/indentLine
 let g:indentLine_color_term = 241
 let g:indentLine_char = '⋅'
-
 " ----- Tagbar ---------------------------
 if executable("ctags")
     set runtimepath^=$SHDWDIR/rc/vim/bundle/Tagbar
@@ -121,6 +124,7 @@ set magic                                        " Magic
 set tags=./tags,tags;/                           " Look for tag files recursively up to the root directory.
 set t_ut=                                        " Redraw background
 set nospell                                      " I don't want spell checking
+set conceallevel=0                               " Don't hide quotes
 
 " Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
@@ -228,6 +232,7 @@ augroup END
 " python files
 augroup filetype_python
   autocmd FileType python setl nosmartindent
+  set conceallevel=1 " For cool indent dots
 augroup END
 
 augroup filetype_cma
@@ -238,6 +243,16 @@ augroup END
 
 augroup filetype_slice
   autocmd BufNewFile,BufRead *.ice setlocal ft=slice.doxygen
+augroup END
+
+augroup filetype_yaml
+    autocmd BufNewFile,BufRead *.yaml setlocal conceallevel=0 " Don't hide quotes
+augroup END
+
+augroup filetype_json
+    autocmd FileType json let g:indentLine_enabled=0
+    autocmd FileType json setlocal concealcursor=inc " Don't hide quotes
+    autocmd FileType json setlocal conceallevel=0 " Don't hide quotes
 augroup END
 
 " Not sure why this has to go here
