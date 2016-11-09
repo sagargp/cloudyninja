@@ -49,6 +49,8 @@ if [ ! -z ${SHDWUSER} ]; then
         GITCONFIG="${GITCONFIG} -c pager.show=\"${DIFFTOOL}\""
         GITCONFIG="${GITCONFIG} -c pager.diff=\"${DIFFTOOL}\""
 
+        GITCONFIG="${GITCONFIG} -c alias.hi=\"log --color --graph --pretty=format:'%C(Yellow)%h%Creset -%C(reverse)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit\""
+
         alias git="git ${GITCONFIG}"
 
     else
