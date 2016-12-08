@@ -175,6 +175,9 @@ nnoremap <leader>w :set wrap!<cr>
 " Jump to a tag definition in a new tab with Ctrl+\
 map <C-\> :tab split<cr>:exec("tag ".expand("<cword>"))<CR>
 
+" Type :w!! to save a file as sudo
+cmap w!! w !sudo tee > /dev/null %
+
 " --------------------
 " Misc plugin settings
 " --------------------
