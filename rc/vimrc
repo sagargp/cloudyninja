@@ -58,6 +58,9 @@ set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-nerdtree-tabs
 let NERDTreeIgnore=['\.o$', '\~$', '\.pyc$']
 nnoremap <leader>n :NERDTreeTabsToggle<CR>
 
+" ----- YankRing ---------------------------
+set runtimepath^=$SHDWDIR/rc/vim/bundle/YankRing.vim
+
 " ----- Syntastic ----------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/syntastic
 " set statusline+=%#warningmsg#
