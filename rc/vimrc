@@ -1,3 +1,4 @@
+set autochdir                                    " Set cwd to the current file's dir
 set nocompatible                                 " I don't need Vim to be Vi compatible
 syntax on                                        " syntax highlighting
 filetype plugin indent on
@@ -95,7 +96,6 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$' " Highlight VCS conflict marker
 set background=dark
 set mouse=a                                      " Mouse lort in terminal Vim
 set encoding=utf-8                               " Text encoding should support more than ASCII
-set autochdir                                    " Set cwd to the current file's dir
 set ruler                                        " Show line, col, line% in bottom right corner
 set autoindent                                   " Auto indent new lines
 set nosmartindent                                " Indent smartly after {'s, etc
@@ -131,6 +131,7 @@ set tags=./tags,tags;/                           " Look for tag files recursivel
 set t_ut=                                        " Redraw background
 set nospell                                      " I don't want spell checking
 set conceallevel=0                               " Don't hide quotes
+set autochdir                                    " Set cwd to the current file's dir
 
 " Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
