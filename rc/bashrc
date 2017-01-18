@@ -105,4 +105,8 @@ if [ -f ${HOME}/.pathrc ]; then
   source ${HOME}/.pathrc
 fi
 
+if [ -f /invia/mercury/RobotCode/mercury/setup.bash ]; then
+    source /invia/mercury/RobotCode/mercury/setup.bash
+fi
+
 # vim:syntax=sh
