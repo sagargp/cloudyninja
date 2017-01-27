@@ -41,7 +41,7 @@ set runtimepath^=$SHDWDIR/rc/vim/bundle/ctrlp.vim
 let g:ctrlp_cmd = 'CtrlPMRU'
 
 " ----- PEP8 Indent ---------------------------
-set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-python-pep8-indent
+" set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-python-pep8-indent
 
 " ----- AutoPEP8 ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-autopep8
@@ -53,8 +53,8 @@ let g:jedi#show_call_signatures = "0"
 let g:jedi#usages_command = "<leader>u"
 
 " ----- Braceless (text objects for python) ----
-set runtimepath^=$SHDWDIR/rc/vim/bundle/braceless.vim
-autocmd FileType python BracelessEnable +indent
+" set runtimepath^=$SHDWDIR/rc/vim/bundle/braceless.vim
+" autocmd FileType python BracelessEnable +indent
 
 " ----- NerdTree ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/nerdtree
@@ -70,6 +70,7 @@ set runtimepath^=$SHDWDIR/rc/vim/bundle/syntastic
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
 " set statusline+=%*
+" Install pip install flake8-mutable
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
@@ -84,7 +85,7 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11'
 let g:syntastic_javascript_checkers = ['eslint']
 
 " ----- Javascript and React ----------------------
-set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-javascript
+" set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-javascript
 " set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-jsx
 " let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
