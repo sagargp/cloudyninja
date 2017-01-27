@@ -47,7 +47,7 @@ set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-python-pep8-indent
 set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-autopep8
 
 " ----- Jedi ---------------------------
-set runtimepath^=$SHDWDIR/rc/vim/bundle/jedi-vim
+" set runtimepath^=$SHDWDIR/rc/vim/bundle/jedi-vim
 let g:jedi#use_tabs_not_buffers = 1
 let g:jedi#show_call_signatures = "0"
 let g:jedi#usages_command = "<leader>u"
@@ -90,6 +90,8 @@ set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-javascript
 
 " ----- Show marks in the gutter ------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-signature
+
+set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-abolish
 
 " Basic Vim settings
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$' " Highlight VCS conflict markers
