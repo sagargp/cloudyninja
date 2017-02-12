@@ -109,4 +109,6 @@ if [ -f /invia/mercury/RobotCode/mercury/setup.bash ]; then
     source /invia/mercury/RobotCode/mercury/setup.bash
 fi
 
+export EDITOR=vim
+
 # vim:syntax=sh
