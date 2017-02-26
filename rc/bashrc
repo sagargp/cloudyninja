@@ -74,7 +74,13 @@ On_ICyan='\[\033[0;106m\]'    # Cyan
 On_IWhite='\[\033[0;107m\]'   # White
 
 export GIT_PS1_SHOWUPSTREAM=verbose
-PS1="${Green}\u[${SHDWUSER}]${Color_Off}@${BGreen}\h${Color_Off}:${BIBlue}\w${Color_Off}${Yellow}"'$(__git_ps1 "(%s)")'"${Color_Off}$ "
+if [ -z ${HIDESHDWUSER+x} ]; then
+    SHDW_USER_PROMPT="[${SHDWUSER}]"
+else
+    SHDW_USER_PROMPT=""
+fi
+
+PS1="${Green}\u${SHDW_USER_PROMPT}${Color_Off}@${BGreen}\h${Color_Off}:${BIBlue}\w${Color_Off}${Yellow}"'$(__git_ps1 "(%s)")'"${Color_Off}$ "
 
 # Unlimited history file size
 HISTSIZE= HISTFILESIZE=
@@ -108,5 +114,7 @@ fi
 if [ -f /invia/mercury/RobotCode/mercury/setup.bash ]; then
     source /invia/mercury/RobotCode/mercury/setup.bash
 fi
+
+export EDITOR=vim
 
 # vim:syntax=sh

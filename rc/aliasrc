@@ -36,8 +36,8 @@ if [ ! -z ${SHDWUSER} ]; then
         SHDWLINE=$(grep "^$SHDWUSER\b" ${SHDWDIR}/shdws)
 
         # Parse out the needed fields
-        SHDWNAME=$(echo ${SHDWLINE} | awk -F, '{printf("%s\n", $2)}')
-        SHDWEMAIL=$(echo ${SHDWLINE} | awk -F, '{printf("%s\n", $3)}')
+        export SHDWNAME=$(echo ${SHDWLINE} | awk -F, '{printf("%s\n", $2)}')
+        export SHDWEMAIL=$(echo ${SHDWLINE} | awk -F, '{printf("%s\n", $3)}')
 
         GITCONFIG=""
         GITCONFIG="${GITCONFIG} -c user.name=\"${SHDWNAME}\""
