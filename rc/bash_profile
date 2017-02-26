@@ -1,0 +1,4 @@
+export SHDWDIR=$HOME/workspace/shdw
+export SHDWUSER=sgp
+export HIDESHDWUSER=1
+source $HOME/.bashrc
