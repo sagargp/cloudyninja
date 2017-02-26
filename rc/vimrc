@@ -4,18 +4,18 @@ syntax on                                        " syntax highlighting
 filetype plugin indent on
 let mapleader=","                                " Maps <leader> to ,
 
-
 " ----- Hybrid Colorscheme ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-hybrid
-
 
 " ----- Indent Line ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/indentLine
 let g:indentLine_color_term = 241
 let g:indentLine_char = '⋅'
+
 " ----- Tagbar ---------------------------
 if executable("ctags")
     set runtimepath^=$SHDWDIR/rc/vim/bundle/Tagbar
+    nnoremap <leader>t :TagbarToggle<CR>
 endif
 
 " ----- Airline ---------------------------
@@ -41,20 +41,14 @@ set runtimepath^=$SHDWDIR/rc/vim/bundle/ctrlp.vim
 let g:ctrlp_cmd = 'CtrlPMRU'
 
 " ----- PEP8 Indent ---------------------------
-" set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-python-pep8-indent
+set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-python-pep8-indent
 
 " ----- AutoPEP8 ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-autopep8
 
-" ----- Jedi ---------------------------
-" set runtimepath^=$SHDWDIR/rc/vim/bundle/jedi-vim
-let g:jedi#use_tabs_not_buffers = 1
-let g:jedi#show_call_signatures = "0"
-let g:jedi#usages_command = "<leader>u"
-
 " ----- Braceless (text objects for python) ----
-" set runtimepath^=$SHDWDIR/rc/vim/bundle/braceless.vim
-" autocmd FileType python BracelessEnable +indent
+set runtimepath^=$SHDWDIR/rc/vim/bundle/braceless.vim
+autocmd FileType python BracelessEnable +indent
 
 " ----- NerdTree ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/nerdtree
@@ -62,14 +56,11 @@ set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-nerdtree-tabs
 let NERDTreeIgnore=['\.o$', '\~$', '\.pyc$']
 nnoremap <leader>n :NERDTreeTabsToggle<CR>
 
-" ----- YankRing ---------------------------
-set runtimepath^=$SHDWDIR/rc/vim/bundle/YankRing.vim
-
 " ----- Syntastic ----------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/syntastic
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 " Install pip install flake8-mutable
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
@@ -84,14 +75,10 @@ let g:syntastic_cpp_compiler = '' "'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
 let g:syntastic_javascript_checkers = ['eslint']
 
-" ----- Javascript and React ----------------------
-" set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-javascript
-" set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-jsx
-" let g:jsx_ext_required = 0 " Allow JSX in normal JS files
-
 " ----- Show marks in the gutter ------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-signature
 
+" ----- smart search and replace
 set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-abolish
 
 " Basic Vim settings
@@ -197,7 +184,6 @@ let g:airline#extensions#tabline#enabled=1                                      
 let g:airline#extensions#syntastic#enabled=1                                    " Enable airline by default on new sessions
 set laststatus=2                                                                " see above
 
-nnoremap <leader>t :TagbarToggle<CR>
 imap <leader>= :Tab /=<CR>
 nmap <leader>= :Tab /=<CR>
 vmap <leader>= :Tab /=<CR>
@@ -226,6 +212,13 @@ augroup filetype_make
   autocmd!
   " Don't expand tabs when editing makefiles
   autocmd! FileType make setlocal noexpandtab
+augroup END
+
+" javascirpt
+augroup filetype_javascript
+    set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-javascript
+    set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-jsx
+    let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 augroup END
 
 " vim scripts
