@@ -49,6 +49,9 @@ set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-python-pep8-indent
 " ----- AutoPEP8 ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-autopep8
 
+" ----- GUndo ---------------------------
+set runtimepath^=$SHDWDIR/rc/vim/bundle/gundo.vim
+
 " ----- Braceless (text objects for python) ----
 set runtimepath^=$SHDWDIR/rc/vim/bundle/braceless.vim
 autocmd FileType python BracelessEnable +indent
