@@ -1,3 +1,8 @@
+if [ -z ${PROFILE_SOURCED+x} ]; then
+    source $HOME/.bash_profile
+fi
+
+
 export GIT_PS1_SHOWDIRTYSTATE=1
 
 # Reset
