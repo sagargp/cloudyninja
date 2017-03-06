@@ -63,6 +63,9 @@ let NERDTreeIgnore=['\.o$', '\~$', '\.pyc$']
 nnoremap <leader>n :NERDTreeTabsToggle<CR>
 
 if v:version < 800
+    " ----- Jedi ---------------------------
+    set runtimepath^=$SHDWDIR/rc/vim/bundle/jedi-vim
+
     " ----- Syntastic ----------------------
     set runtimepath^=$SHDWDIR/rc/vim/bundle/syntastic
     set statusline+=%#warningmsg#
@@ -82,6 +85,7 @@ if v:version < 800
     let g:syntastic_cpp_compiler_options = ' -std=c++11'
     let g:syntastic_javascript_checkers = ['eslint']
 else
+    set runtimepath^=$SHDWDIR/rc/vim/bundle/completor.vim
     set runtimepath^=$SHDWDIR/rc/vim/bundle/ale
     let g:ale_python_flake8_args = "--max-line-length=160 --builtins=reload,unicode --ignore=E402,C0301,C0111,C0103,E0211,C0413"
 endif
