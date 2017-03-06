@@ -83,6 +83,7 @@ if v:version < 800
     let g:syntastic_javascript_checkers = ['eslint']
 else
     set runtimepath^=$SHDWDIR/rc/vim/bundle/ale
+    let g:ale_python_flake8_args = "--max-line-length=160 --builtins=reload,unicode --ignore=E402,C0301,C0111,C0103,E0211,C0413"
 endif
 
 " ----- Show marks in the gutter ------------------
