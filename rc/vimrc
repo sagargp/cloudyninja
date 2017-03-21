@@ -91,7 +91,16 @@ else
     set runtimepath^=$SHDWDIR/rc/vim/bundle/ale
     let g:ale_linters = {'javascript': ['eslint']}
     let g:ale_javascript_eslint_use_global = 1
-    let g:ale_python_flake8_args = "--max-line-length=160 --builtins=reload,unicode --ignore=E402,C0301,C0111,C0103,E0211,C0413"
+
+    nnoremap <Leader><Space> :ALENextWrap<CR>
+    " let g:ale_lint_on_save = 1
+    " let g:ale_lint_on_text_changed = 0
+    " let g:ale_lint_on_enter = 0
+    let g:ale_linters = {'python': ['pylint']}
+    let g:ale_sign_error = '✗'
+    let g:ale_sign_warning = '⚠'
+    let g:ale_python_flake8_args = "--max-line-length=160 --builtins=reload,unicode"
+    let g:ale_python_pylint_options = "-j 3 --disable=E402,C0301,C0111,C0103,E0211,C0413,W0702,R0914,R0201,R0902,R0903,R0911"
 endif
 
 " ----- Show marks in the gutter ------------------
