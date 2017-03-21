@@ -4,6 +4,8 @@ syntax on                                        " syntax highlighting
 filetype plugin indent on
 let mapleader=","                                " Maps <leader> to ,
 
+set timeoutlen=1000 ttimeoutlen=0
+
 " ----- Syntax     ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/syntax
 
@@ -54,7 +56,7 @@ set runtimepath^=$SHDWDIR/rc/vim/bundle/gundo.vim
 
 " ----- Braceless (text objects for python) ----
 set runtimepath^=$SHDWDIR/rc/vim/bundle/braceless.vim
-autocmd FileType python BracelessEnable +indent
+autocmd FileType python BracelessEnable +indent +fold
 
 " ----- NerdTree ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/nerdtree
@@ -87,6 +89,8 @@ if v:version < 800
 else
     set runtimepath^=$SHDWDIR/rc/vim/bundle/completor.vim
     set runtimepath^=$SHDWDIR/rc/vim/bundle/ale
+    let g:ale_linters = {'javascript': ['eslint']}
+    let g:ale_javascript_eslint_use_global = 1
     let g:ale_python_flake8_args = "--max-line-length=160 --builtins=reload,unicode --ignore=E402,C0301,C0111,C0103,E0211,C0413"
 endif
 
