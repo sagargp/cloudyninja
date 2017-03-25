@@ -64,6 +64,16 @@ set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-nerdtree-tabs
 let NERDTreeIgnore=['\.o$', '\~$', '\.pyc$']
 nnoremap <leader>n :NERDTreeTabsToggle<CR>
 
+
+" ----- Javascript ---------------------------
+set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-javascript
+set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-jsx
+set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-jsx/after
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+" let g:jsx_pragma_required = 1
+highlight link xmlEndTag xmlTag
+
+
 if v:version < 800
     " ----- Jedi ---------------------------
     set runtimepath^=$SHDWDIR/rc/vim/bundle/jedi-vim
@@ -248,12 +258,12 @@ augroup filetype_make
   autocmd! FileType make setlocal noexpandtab
 augroup END
 
-" javascirpt
-augroup filetype_javascript
-    set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-javascript
-    set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-jsx
-    let g:jsx_ext_required = 0 " Allow JSX in normal JS files
-augroup END
+" " javascirpt
+" augroup filetype_javascript
+"     set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-javascript
+"     set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-jsx
+"     let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+" augroup END
 
 " vim scripts
 augroup filetype_vim
