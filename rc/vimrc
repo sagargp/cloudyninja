@@ -100,7 +100,7 @@ else
     let g:ale_sign_error = '✗'
     let g:ale_sign_warning = '⚠'
     let g:ale_python_flake8_args = "--max-line-length=160 --builtins=reload,unicode"
-    let g:ale_python_pylint_options = "-j 3 --disable=E402,C0301,C0111,C0103,E0211,C0413,W0702,R0914,R0201,R0902,R0903,R0911"
+    let g:ale_python_pylint_options = "-j 3 --disable=E402,C0301,C0111,C0103,E0211,C0413,W0702,R0914,R0201,R0902,R0903,R0911,W0640,R0912,W0201,R0913"
 endif
 
 " ----- Show marks in the gutter ------------------
@@ -248,7 +248,7 @@ augroup filetype_make
   autocmd! FileType make setlocal noexpandtab
 augroup END
 
-" javascirpt
+" javascript
 augroup filetype_javascript
     set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-javascript
     set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-jsx
