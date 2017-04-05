@@ -4,6 +4,8 @@ syntax on                                        " syntax highlighting
 filetype plugin indent on
 let mapleader=","                                " Maps <leader> to ,
 
+set timeoutlen=1000 ttimeoutlen=0
+
 " ----- Syntax     ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/syntax
 
@@ -54,13 +56,23 @@ set runtimepath^=$SHDWDIR/rc/vim/bundle/gundo.vim
 
 " ----- Braceless (text objects for python) ----
 set runtimepath^=$SHDWDIR/rc/vim/bundle/braceless.vim
-autocmd FileType python BracelessEnable +indent
+autocmd FileType python BracelessEnable +indent +fold
 
 " ----- NerdTree ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/nerdtree
 set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-nerdtree-tabs
 let NERDTreeIgnore=['\.o$', '\~$', '\.pyc$']
 nnoremap <leader>n :NERDTreeTabsToggle<CR>
+
+
+" ----- Javascript ---------------------------
+set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-javascript
+set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-jsx
+set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-jsx/after
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+" let g:jsx_pragma_required = 1
+highlight link xmlEndTag xmlTag
+
 
 if v:version < 800
     " ----- Jedi ---------------------------
@@ -87,9 +99,26 @@ if v:version < 800
 else
     set runtimepath^=$SHDWDIR/rc/vim/bundle/completor.vim
     set runtimepath^=$SHDWDIR/rc/vim/bundle/ale
+    let g:ale_linters = {'javascript': ['eslint']}
+    let g:ale_javascript_eslint_use_global = 1
+
+    nnoremap <Leader><Space> :ALENextWrap<CR>
+    " let g:ale_lint_on_save = 1
+    " let g:ale_lint_on_text_changed = 0
+    " let g:ale_lint_on_enter = 0
+    let g:ale_linters = {
+    \    'python': ['pylint'],
+    \    'jsx': ['eslint', 'stylelint'],
+    \    'javascript': ['eslint', 'stylelint']
+    \    }
+
+
     let g:ale_sign_error = '✗'
     let g:ale_sign_warning = '⚠'
-    let g:ale_python_flake8_args = "--max-line-length=160 --builtins=reload,unicode --ignore=E402,C0301,C0111,C0103,E0211,C0413"
+    let g:ale_python_flake8_args = "--max-line-length=160 --builtins=reload,unicode"
+    let g:ale_python_pylint_options = "-j 3 --disable=E402,C0301,C0111,C0103,E0211,C0413,W0702,R0914,R0201,R0902,R0903,R0911,W0640,R0912,W0201,R0913"
+    let g:ale_linters = {'javascript.jsx': ['eslint']}
+    let g:ale_javascript_eslint_options='--env es6'
 endif
 
 " ----- Show marks in the gutter ------------------
@@ -237,10 +266,11 @@ augroup filetype_make
   autocmd! FileType make setlocal noexpandtab
 augroup END
 
-" javascirpt
+" javascript
 augroup filetype_javascript
     set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-javascript
     set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-jsx
+    set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-jsx/after
     let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 augroup END
 
