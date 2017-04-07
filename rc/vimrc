@@ -17,6 +17,9 @@ set runtimepath^=$SHDWDIR/rc/vim/bundle/indentLine
 let g:indentLine_color_term = 241
 let g:indentLine_char = '⋅'
 
+" ----- Narrow Region ---------------------------
+set runtimepath^=$SHDWDIR/rc/vim/bundle/NrrwRgn
+
 " ----- Tagbar ---------------------------
 if executable("ctags")
     set runtimepath^=$SHDWDIR/rc/vim/bundle/Tagbar
@@ -63,6 +66,13 @@ set runtimepath^=$SHDWDIR/rc/vim/bundle/nerdtree
 set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-nerdtree-tabs
 let NERDTreeIgnore=['\.o$', '\~$', '\.pyc$']
 nnoremap <leader>n :NERDTreeTabsToggle<CR>
+
+" let g:netrw_banner = 0
+" let g:netrw_liststyle = 3
+" let g:netrw_browse_split = 4
+" let g:netrw_altv = 1
+" let g:netrw_winsize = 20
+" nnoremap <leader>n :Vexplore<CR>
 
 
 " ----- Javascript ---------------------------
@@ -116,9 +126,7 @@ else
     let g:ale_sign_error = '✗'
     let g:ale_sign_warning = '⚠'
     let g:ale_python_flake8_args = "--max-line-length=160 --builtins=reload,unicode"
-    let g:ale_python_pylint_options = "-j 3 --disable=E402,C0301,C0111,C0103,E0211,C0413,W0702,R0914,R0201,R0902,R0903,R0911,W0640,R0912,W0201,R0913"
-    let g:ale_linters = {'javascript.jsx': ['eslint']}
-    let g:ale_javascript_eslint_options='--env es6'
+    let g:ale_python_pylint_options = "--init-hook='sys.path.extend([\"/invia/rms/RobotCode/rms/site_packages\", \"/invia/rms/RobotCode/mercury/software/lib/python\", \".\"])' -j 3 --extension-pkg-whitelist=numpy,np --disable=E402,C0301,C0111,C0103,E0211,C0413,W0702,R0914,R0201,R0902,R0903,R0911,W0640,R0912,W0201,R0913,R0915,W0212"
 endif
 
 " ----- Show marks in the gutter ------------------

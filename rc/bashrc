@@ -121,6 +121,10 @@ if [ -f /invia/mercury/RobotCode/mercury/setup.bash ]; then
     source /invia/mercury/RobotCode/mercury/setup.bash
 fi
 
+if [ -f /invia/rms/RobotCode/rms/setup.bash ]; then
+    source /invia/rms/RobotCode/rms/setup.bash
+fi
+
 export EDITOR=vim
 
 # vim:syntax=sh

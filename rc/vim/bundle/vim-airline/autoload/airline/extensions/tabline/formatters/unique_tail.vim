@@ -1,5 +1,7 @@
-" MIT License. Copyright (c) 2013-2015 Bailey Ling.
+" MIT License. Copyright (c) 2013-2016 Bailey Ling.
 " vim: et ts=2 sts=2 sw=2
+
+scriptencoding utf-8
 
 function! airline#extensions#tabline#formatters#unique_tail#format(bufnr, buffers)
   let duplicates = {}
@@ -10,7 +12,7 @@ function! airline#extensions#tabline#formatters#unique_tail#format(bufnr, buffer
     if empty(name)
       let map[nr] = '[No Name]'
     else
-      let tail = fnamemodify(name, ':t')
+      let tail = fnamemodify(name, ':s?/\+$??:t')
       if has_key(tails, tail)
         let duplicates[nr] = nr
       endif
