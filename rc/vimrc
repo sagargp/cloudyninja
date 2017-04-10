@@ -229,6 +229,10 @@ map <C-\> :tab split<cr>:exec("tag ".expand("<cword>"))<CR>
 " Type :w!! to save a file as sudo
 cmap w!! w !sudo tee > /dev/null %
 
+" yank to xclip/paste from xclip
+vmap "+y :!xclip -f -sel clip<CR>
+map "+p :r!xclip -o -sel clip<CR>
+
 " --------------------
 " Misc plugin settings
 " --------------------
