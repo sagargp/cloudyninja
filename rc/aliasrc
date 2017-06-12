@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 alias sudo='sudo -E '
-alias tmux="tmux -L shdw_${SHDWUSER} -2 -f $SHDWDIR/rc/tmux.conf"
+alias tmux="tmux -u -L shdw_${SHDWUSER} -2 -f $SHDWDIR/rc/tmux.conf"
 SHDWVIM="vim -p -u $SHDWDIR/rc/vimrc"
 alias vim=${SHDWVIM}
 alias python="PYTHONSTARTUP=$SHDWDIR/rc/pythonrc python"
