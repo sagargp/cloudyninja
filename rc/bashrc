@@ -1,3 +1,8 @@
+if [ -z "$PS1" ]; then
+    return
+fi
+
+
 if [ -z ${PROFILE_SOURCED+x} ] && [ -f ${HOME}/.bash_profile ]; then
     export PROFILE_SOURCED=1
     source $HOME/.bash_profile
