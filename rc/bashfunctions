@@ -13,6 +13,19 @@ udevrestart()
   sudo udevadm trigger --action=change
 }
 
+s() {
+    sudo systemctl status $@
+}
+_s() {
+    local cur prev opts base
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    local services=$(systemctl list-units | cut -f1 -d ' ' | grep "service$")
+    COMPREPLY=( $(compgen -W "${services} ${opts}" -- ${cur}) )
+    return 0;
+}
+complete -F _s s
+
 j() {
     if ! which ccze > /dev/null; then
         sudo journalctl -f -u $@
