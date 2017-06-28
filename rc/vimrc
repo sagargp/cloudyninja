@@ -21,10 +21,11 @@ let g:indentLine_char = '⋅'
 set runtimepath^=$SHDWDIR/rc/vim/bundle/NrrwRgn
 
 " ----- Tagbar ---------------------------
-if executable("ctags")
-    set runtimepath^=$SHDWDIR/rc/vim/bundle/Tagbar
-    nnoremap <leader>t :TagbarToggle<CR>
-endif
+set runtimepath^=$SHDWDIR/rc/vim/bundle/Tagbar
+nnoremap <leader>t :TagbarToggle<CR>
+
+" ----- nginx syntax ---------------------------
+set runtimepath^=$SHDWDIR/rc/vim/bundle/nginx.vim
 
 " ----- Airline ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-airline
@@ -57,23 +58,11 @@ set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-autopep8
 " ----- GUndo ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/gundo.vim
 
-" ----- Braceless (text objects for python) ----
-set runtimepath^=$SHDWDIR/rc/vim/bundle/braceless.vim
-autocmd FileType python BracelessEnable +indent +fold
-
 " ----- NerdTree ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/nerdtree
 set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-nerdtree-tabs
 let NERDTreeIgnore=['\.o$', '\~$', '\.pyc$']
 nnoremap <leader>n :NERDTreeTabsToggle<CR>
-
-" let g:netrw_banner = 0
-" let g:netrw_liststyle = 3
-" let g:netrw_browse_split = 4
-" let g:netrw_altv = 1
-" let g:netrw_winsize = 20
-" nnoremap <leader>n :Vexplore<CR>
-
 
 " ----- Javascript ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-javascript
@@ -144,8 +133,7 @@ set mouse=a                                      " Mouse lort in terminal Vim
 set encoding=utf-8                               " Text encoding should support more than ASCII
 set ruler                                        " Show line, col, line% in bottom right corner
 set autoindent                                   " Auto indent new lines
-set nosmartindent                                " Indent smartly after {'s, etc
-set expandtab                                    " Spaces instead of tabs
+set nosmartindent                                " Indent smartly after {'s, etc set expandtab                                    " Spaces instead of tabs
 set tabstop=4                                    " Cols per tab
 set shiftwidth=4                                 " Cols per shift (>> and <<)
 set showmatch                                    " Briefly show the matching bracket when you type it (won't scroll)
@@ -261,17 +249,15 @@ au CursorHold * checktime
 " my notes files
 au BufRead,BufNewFile *.note set filetype=notes
 
+" systemd
+au BufRead,BufNewFile *.service set filetype=systemd
+au BufRead,BufNewFile *.timer set filetype=systemd
+
 " arduino files
 au BufRead, BufNewFile *.ino set filetype=arduino
 
 " markdown
 au BufRead,BufNewFile *.md set filetype=markdown
-
-" nginx
-au BufRead,BufNewFile *.nginx set ft=nginx
-au BufRead,BufNewFile */etc/nginx/* set ft=nginx
-au BufRead,BufNewFile */usr/local/nginx/conf/* set ft=nginx
-au BufRead,BufNewFile nginx.conf set ft=nginx
 
 " makefiles
 augroup filetype_make

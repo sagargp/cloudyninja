@@ -43,14 +43,12 @@ if [ ! -z ${SHDWUSER} ]; then
         GITCONFIG="${GITCONFIG} -c user.name=\"${SHDWNAME}\""
         GITCONFIG="${GITCONFIG} -c user.email=\"${SHDWEMAIL}\""
         GITCONFIG="${GITCONFIG} -c core.editor=\"${SHDWVIM}\""
-        GITCONFIG="${GITCONFIG} -c push.default=simple"
+		GITCONFIG="${GITCONFIG} -c include.path=\"${SHDWDIR}/rc/gitconfig\""
 
         DIFFTOOL="${SHDWDIR}/bin/diff-highlight | less"
         GITCONFIG="${GITCONFIG} -c pager.log=\"${DIFFTOOL}\""
         GITCONFIG="${GITCONFIG} -c pager.show=\"${DIFFTOOL}\""
         GITCONFIG="${GITCONFIG} -c pager.diff=\"${DIFFTOOL}\""
-
-        GITCONFIG="${GITCONFIG} -c alias.hi=\"log --color --graph --pretty=format:'%C(Yellow)%h%Creset -%C(reverse)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit\""
 
         alias git="git ${GITCONFIG}"
 

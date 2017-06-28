@@ -118,8 +118,6 @@ source $SHDWDIR/rc/bashfunctions
 source $SHDWDIR/rc/envrc
 source $SHDWDIR/rc/aliasrc
 
-source $SHDWDIR/rc/bash/plugins/goto.sh
-
 if [ -f ${HOME}/.pathrc ]; then
   source ${HOME}/.pathrc
 fi
