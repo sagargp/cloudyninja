@@ -122,6 +122,9 @@ else
     \    'javascript': ['eslint', 'stylelint']
     \    }
 
+    let g:ale_cpp_gcc_options = '-std=c++14 -I/usr/include/eigen3'
+    let g:ale_cpp_clang_options = '-std=c++14 -I/usr/include/eigen3'
+
     let g:ale_sign_error = '✗'
     let g:ale_sign_warning = '⚠'
     let g:ale_python_flake8_args = "--max-line-length=160 --builtins=reload,unicode"
