@@ -118,6 +118,11 @@ source $SHDWDIR/rc/bashfunctions
 source $SHDWDIR/rc/envrc
 source $SHDWDIR/rc/aliasrc
 
+# fzf setup
+export PATH=$SHDWDIR/fzf/bin:$PATH
+source $SHDWDIR/fzf/shell/completion.bash
+source $SHDWDIR/fzf/shell/key-bindings.bash
+
 if [ -f ${HOME}/.pathrc ]; then
   source ${HOME}/.pathrc
 fi

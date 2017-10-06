@@ -9,6 +9,14 @@ set timeoutlen=1000 ttimeoutlen=0
 " ----- Syntax     ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/syntax
 
+
+" ----- FZF ---------------------------
+set runtimepath^=$SHDWDIR/fzf
+set runtimepath^=$SHDWDIR/rc/vim/bundle/fzf.vim
+
+command! FZFInvia call fzf#run(fzf#wrap({'source': 'find . /invia /etc /lib/systemd/system /var/log ~/workspace -type f', 'sink': 'edit'}))
+nmap <C-P> :FZFInvia<CR>
+
 " ----- Hybrid Colorscheme ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-hybrid
 
@@ -46,8 +54,8 @@ nnoremap + :GitGutterStageHunk<CR>
 nnoremap - :GitGutterRevertHunk<CR>
 
 " ----- Ctrl-P ---------------------------
-set runtimepath^=$SHDWDIR/rc/vim/bundle/ctrlp.vim
-let g:ctrlp_cmd = 'CtrlPMRU'
+" set runtimepath^=$SHDWDIR/rc/vim/bundle/ctrlp.vim
+" let g:ctrlp_cmd = 'CtrlP /invia'
 
 " ----- PEP8 Indent ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-python-pep8-indent
