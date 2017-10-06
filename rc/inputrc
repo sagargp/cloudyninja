@@ -1,6 +1,12 @@
 set editing-mode vi
+# set show-mode-in-prompt on 
+set colored-completion-prefix on
+set colored-stats on
+set bell-style visible
 
 $if mode=vi
+    set vi-cmd-mode-string "C"
+    set vi-ins-mode-string "I"
     set keymap vi-command
     Control-l: clear-screen
     "gg": beginning-of-history
