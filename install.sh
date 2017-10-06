@@ -5,8 +5,8 @@ export SHDWUSER=$1
 export HIDESHDWUSER=1
 export PROFILE_SOURCED=1
 
-mv $HOME/.bashrc $HOME/.bashrc.bak
-mv $HOME/.bash_profile $HOME/.bash_profile.bak
+mv $HOME/.bashrc $HOME/.bashrc.bak 2> /dev/null
+mv $HOME/.bash_profile $HOME/.bash_profile.bak 2> /dev/null
 
 echo "export SHDWDIR=$SHDWDIR" > $HOME/.bash_profile
 echo "export SHDWUSER=$SHDWUSER" >> $HOME/.bash_profile
