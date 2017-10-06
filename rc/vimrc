@@ -9,6 +9,9 @@ set timeoutlen=1000 ttimeoutlen=0
 " ----- Syntax     ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/syntax
 
+" ----- Minimap ---------------------------
+set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-minimap
+let g:minimap_toggle='<leader>m'
 
 " ----- FZF ---------------------------
 set runtimepath^=$SHDWDIR/fzf
