@@ -122,6 +122,7 @@ source $SHDWDIR/rc/aliasrc
 export PATH=$SHDWDIR/fzf/bin:$PATH
 source $SHDWDIR/fzf/shell/completion.bash
 source $SHDWDIR/fzf/shell/key-bindings.bash
+export FZF_DEFAULT_OPTS="--preview=\"head -$LINES {}\" --border --height 50%"
 
 if [ -f ${HOME}/.pathrc ]; then
   source ${HOME}/.pathrc

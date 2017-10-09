@@ -1,3 +1,9 @@
 # for better color support in tmux
 export TERM=xterm-256color
 export MYVIMRC=${SHDWDIR}/rc/vimrc
+
+if [ -d /invia/mercury/RobotCode ]; then
+	export ROBOTCODE=/invia/mercury/RobotCode
+elif [ -d /invia/rms/RobotCode ]; then
+	export ROBOTCODE=/invia/rms/RobotCode
+fi
