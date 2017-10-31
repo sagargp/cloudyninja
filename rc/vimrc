@@ -110,11 +110,10 @@ let g:jsx_ext_required = 1 " Allow JSX in normal JS files
 " let g:jsx_pragma_required = 1
 highlight link xmlEndTag xmlTag
 
+" ----- Jedi ---------------------------
+" set runtimepath^=$SHDWDIR/rc/vim/bundle/jedi-vim
 
 if v:version < 800
-    " ----- Jedi ---------------------------
-    set runtimepath^=$SHDWDIR/rc/vim/bundle/jedi-vim
-
     " ----- Syntastic ----------------------
     set runtimepath^=$SHDWDIR/rc/vim/bundle/syntastic
     set statusline+=%#warningmsg#
@@ -171,7 +170,8 @@ set mouse=a                                      " Mouse lort in terminal Vim
 set encoding=utf-8                               " Text encoding should support more than ASCII
 set ruler                                        " Show line, col, line% in bottom right corner
 set autoindent                                   " Auto indent new lines
-set nosmartindent                                " Indent smartly after {'s, etc set expandtab                                    " Spaces instead of tabs
+set nosmartindent                                " Indent smartly after {'s, etc 
+set expandtab                                    " Spaces instead of tabs
 set tabstop=4                                    " Cols per tab
 set shiftwidth=4                                 " Cols per shift (>> and <<)
 set showmatch                                    " Briefly show the matching bracket when you type it (won't scroll)
