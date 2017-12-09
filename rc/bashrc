@@ -112,11 +112,19 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 bind -f $SHDWDIR/rc/inputrc
-source $SHDWDIR/rc/git-completion.bash
-source $SHDWDIR/rc/git-prompt.sh
-source $SHDWDIR/rc/bashfunctions
-source $SHDWDIR/rc/envrc
-source $SHDWDIR/rc/aliasrc
+
+for f in $SHDWDIR/rc/bash.d/*; do
+    source $f
+done
+
+# source $SHDWDIR/rc/git-completion.bash
+# 
+# source $SHDWDIR/rc/bash.d/git-completion.bash
+# 
+# source $SHDWDIR/rc/git-prompt.sh
+# source $SHDWDIR/rc/bashfunctions
+# source $SHDWDIR/rc/envrc
+# source $SHDWDIR/rc/aliasrc
 
 # fzf setup
 export PATH=$SHDWDIR/fzf/bin:$PATH
