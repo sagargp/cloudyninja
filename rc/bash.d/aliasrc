@@ -45,7 +45,7 @@ if [ ! -z ${SHDWUSER} ]; then
         GITCONFIG="${GITCONFIG} -c core.editor=\"${SHDWVIM}\""
 		GITCONFIG="${GITCONFIG} -c include.path=\"${SHDWDIR}/rc/gitconfig\""
 
-        DIFFTOOL="${SHDWDIR}/bin/diff-highlight | less"
+        DIFFTOOL="${SHDWDIR}/bin/diff-so-fancy | less --tabs=4 -RFX"
         GITCONFIG="${GITCONFIG} -c pager.log=\"${DIFFTOOL}\""
         GITCONFIG="${GITCONFIG} -c pager.show=\"${DIFFTOOL}\""
         GITCONFIG="${GITCONFIG} -c pager.diff=\"${DIFFTOOL}\""

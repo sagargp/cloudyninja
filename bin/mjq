@@ -1,0 +1,45 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+from sh import jq
+import sys
+import argparse
+import json
+
+try:
+    from colorama import Style, Fore
+    BRIGHT = Style.BRIGHT
+    RESET_ALL = Style.RESET_ALL
+    YELLOW = Fore.YELLOW
+except:
+    BRIGHT = ''
+    RESET_ALL = ''
+    YELLOW = ''
+
+parser = argparse.ArgumentParser(description='Run jq (json query tool) on multiple files')
+parser.add_argument('query', help='They jq query to run')
+parser.add_argument('files', nargs='+', help='The files on which to run the query')
+parser.add_argument('--write', '-w', default=False, action='store_true', help='Write the results of the query back to the input files')
+args = parser.parse_args()
+
+write_results = {}
+for f in args.files:
+    if args.write:
+        # Get the results of running jq on the file
+        results = str(jq(args.query, f, _tty_out=False))
+        # Load it to make sure it's valid json
+        r = json.loads(results)
+        if not isinstance(r, dict):
+            print 'The results from {} are not a json dictionary. Aborting write!\nOffending Results:\n{}'.format(f, results)
+            sys.exit(1)
+        write_results[f] = results
+    else:
+        results = jq(args.query, f)
+        print '{}{}{} ──────────────────────────────────{}'.format(YELLOW, BRIGHT, f, RESET_ALL)
+        print results
+
+if args.write:
+    for f, r in write_results.iteritems():
+        with open(f, 'w') as w:
+            w.write(r)
+
+

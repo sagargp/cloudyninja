@@ -1,10 +1,13 @@
 set autochdir                                    " Set cwd to the current file's dir
 set nocompatible                                 " I don't need Vim to be Vi compatible
 syntax on                                        " syntax highlighting
-filetype plugin indent on
 let mapleader=","                                " Maps <leader> to ,
 
 set timeoutlen=1000 ttimeoutlen=0
+
+" Temporarily disable filetype plugin matching while we mess with the
+" runtimepath
+filetype off
 
 " ----- Syntax     ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/syntax
@@ -99,6 +102,9 @@ set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-autopep8
 " ----- GUndo ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/gundo.vim
 
+" ----- SaltStack ---------------------------
+set runtimepath^=$SHDWDIR/rc/vim/bundle/salt-vim
+
 " ----- NerdTree ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/nerdtree
 set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-nerdtree-tabs
@@ -115,6 +121,9 @@ highlight link xmlEndTag xmlTag
 
 " ----- Jedi ---------------------------
 " set runtimepath^=$SHDWDIR/rc/vim/bundle/jedi-vim
+
+" Re-enable filetype detection (see comment at 'filetype off')
+filetype plugin indent on
 
 if v:version < 800
     " ----- Syntastic ----------------------
