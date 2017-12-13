@@ -144,9 +144,9 @@ if [ -f /invia/rms/RobotCode/rms/setup.bash ]; then
     source /invia/rms/RobotCode/rms/setup.bash
 fi
 
-if [ -s $SHDWDIR/scm_breeze/scm_breeze.shdw.sh ]; then
-    source "$SHDWDIR/scm_breeze/scm_breeze.shdw.sh"
-fi
+# if [ -s $SHDWDIR/scm_breeze/scm_breeze.shdw.sh ]; then
+#     source "$SHDWDIR/scm_breeze/scm_breeze.shdw.sh"
+# fi
 
 export EDITOR=vim
 
