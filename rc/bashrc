@@ -130,7 +130,9 @@ done
 export PATH=$SHDWDIR/fzf/bin:$PATH
 source $SHDWDIR/fzf/shell/completion.bash
 source $SHDWDIR/fzf/shell/key-bindings.bash
-export FZF_DEFAULT_OPTS="--preview=\"head -$LINES {}\" --border --height 50%"
+
+# setup for shdw bin
+export PATH=$SHDWDIR/bin:$PATH
 
 if [ -f ${HOME}/.pathrc ]; then
   source ${HOME}/.pathrc
@@ -143,10 +145,6 @@ fi
 if [ -f /invia/rms/RobotCode/rms/setup.bash ]; then
     source /invia/rms/RobotCode/rms/setup.bash
 fi
-
-# if [ -s $SHDWDIR/scm_breeze/scm_breeze.shdw.sh ]; then
-#     source "$SHDWDIR/scm_breeze/scm_breeze.shdw.sh"
-# fi
 
 export EDITOR=vim
 

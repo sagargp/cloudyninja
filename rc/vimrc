@@ -23,8 +23,18 @@ let g:minimap_toggle='<leader>m'
 set runtimepath^=$SHDWDIR/fzf
 set runtimepath^=$SHDWDIR/rc/vim/bundle/fzf.vim
 
-command! FZFInvia call fzf#run(fzf#wrap({'source': 'find . /invia /etc /lib/systemd/system /var/log ~/workspace -type f', 'sink': 'edit'}))
-nmap <C-P> :FZFInvia<CR>
+command! FZFMix call fzf#run({
+            \'source':  'bash -c "'.
+            \           'echo -e \"'.join(map(range(1, bufnr('$')), 'bufname(v:val)'), '\n').'\";'.
+            \           'git ls-files;'.
+            \           'find . /invia -type f -not -path \"*/\.git*\"'.
+            \           '"',
+            \'sink' : 'e ',
+            \'options' : '-e -m --reverse',
+            \'window' : 'enew',
+            \})
+
+nmap <C-P> :FZFMix<CR>
 
 " ----- Hybrid Colorscheme ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-hybrid
