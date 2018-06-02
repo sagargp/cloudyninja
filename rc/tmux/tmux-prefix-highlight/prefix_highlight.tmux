@@ -14,8 +14,10 @@ show_copy_config='@prefix_highlight_show_copy_mode'
 copy_attr_config='@prefix_highlight_copy_mode_attr'
 
 # Defaults
-default_fg='colour231'
-default_bg='colour04'
+#default_fg='colour231'
+#default_bg='colour04'
+default_fg=$($SHDWDIR/bin/context-color --fg-color-only)
+default_fg=$($SHDWDIR/bin/context-color --bg-color-only)
 default_copy_attr='fg=default,bg=yellow'
 
 tmux_option() {
