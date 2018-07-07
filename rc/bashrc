@@ -111,6 +111,13 @@ if [ -f /etc/bash_completion ]; then
   source /etc/bash_completion
 fi
 
+# Source bash completion files on OS X (from homebrew)
+if [ -d /usr/local/etc/bash_completion.d ]; then
+    for completion_file in /usr/local/etc/bash_completion.d/* ; do
+        . $completion_file
+    done
+fi
+
 bind -f $SHDWDIR/rc/inputrc
 
 for f in $SHDWDIR/rc/bash.d/*; do
