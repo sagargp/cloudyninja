@@ -118,7 +118,7 @@ set runtimepath^=$SHDWDIR/rc/vim/bundle/salt-vim
 " ----- NerdTree ---------------------------
 set runtimepath^=$SHDWDIR/rc/vim/bundle/nerdtree
 set runtimepath^=$SHDWDIR/rc/vim/bundle/vim-nerdtree-tabs
-let NERDTreeIgnore=['\.o$', '\~$', '\.pyc$']
+let NERDTreeIgnore=['\.o$', '\~$', '\.pyc$', '__pycache__']
 nnoremap <leader>n :NERDTreeTabsToggle<CR>
 
 " ----- Javascript ---------------------------
@@ -313,7 +313,7 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespace()
 " -----------------
 " Filetype settings
 " -----------------
-
+"
 " Check for changes on disk when the cursor is moved, and then remains still
 au CursorHold * checktime
 
