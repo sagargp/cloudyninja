@@ -156,3 +156,5 @@ fi
 export EDITOR=vim
 
 # vim:syntax=sh
+
+eval $(thefuck --alias)
